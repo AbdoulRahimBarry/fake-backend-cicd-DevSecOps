@@ -5,6 +5,7 @@
     password: "{{ var_docker_hub_password }}"
   tags:
     - build
+	- deploy
 
 # Creact file	
 - name: Change file ownership, group and permissions
@@ -62,10 +63,10 @@
 
 - name: pull an image
   docker_image:
-    name: "{{ var_docker_hub_login }}/fake-backend-jenkins_ci_cd_image"
+    name: "{{ var_docker_hub_login }}/fake-backend-jenkins_ci_cd_image":{{ repository_tag }}"
     source: pull
   tags:
-    - preprod
+    -   deploy
 
 # creact network   
 - name: Create a network
@@ -82,7 +83,7 @@
   tags:
     - deploy
     - preprod
-         
+
 # deploy dbgame   
 # Pour le volume les données se trouver dans le container je fait une copy du container dans data
 - name: Create a data container db
