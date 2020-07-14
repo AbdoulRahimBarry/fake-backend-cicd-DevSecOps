@@ -59,7 +59,15 @@
     push: yes
     tag: "{{ repository_tag }}"
   tags:
-    - push 
+    - push
+	
+- name: pull an image
+  docker_image:
+    name: "{{ var_docker_hub_login }}/fake-backend-jenkins_ci_cd_image"
+	tag: "{{ repository_tag }}"
+    source: pull
+  tags:
+    - pull
 
 # creact network   
 - name: Create a network

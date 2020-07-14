@@ -61,12 +61,12 @@ pipeline {
                        sh 'ansible-playbook  -i hosts --vault-password-file vault.key --private-key id_rsa --tags "build" --limit build install_fake_backend.yml'
                    }
                }
-	           stage("Build docker images on preprod host") {
+	           stage("Pull docker images on preprod host") {
 		           when {	
 		              expression { GIT_BRANCH == 'origin/deve' }
 		          }
                    steps {
-                       sh 'ansible-playbook  -i hosts --vault-password-file vault.key --private-key id_rsa --tags "preprod" --limit preprod install_fake_backend.yml'
+                       sh 'ansible-playbook  -i hosts --vault-password-file vault.key --private-key id_rsa --tags "pull" --limit preprod install_fake_backend.yml'
                    }
                }
                stage("Check that you can connect (GET) to a page and it returns a status 200") {
@@ -114,7 +114,6 @@ pipeline {
 			}
 		}
     }
-
     post {
     always {
 	    script { 
