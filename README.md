@@ -1,5 +1,6 @@
 # Fake-backend-ci/cd DevSecOps
 
+[!http://3.235.63.115/buildStatus/icon?job=fake-backend-jenkins_ci_cd!|http://3.235.63.115/job/fake-backend-jenkins_ci_cd/]
 
 Infrastructure: 3 instances VM Centos(ami-0083662ba17882949): Build, Preprod && Prod
 1 Serveurs Jenkins
