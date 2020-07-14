@@ -60,7 +60,7 @@
     tag: "{{ repository_tag }}"
   tags:
     - push
-	
+
 - name: pull an image
   docker_image:
     name: "{{ var_docker_hub_login }}/fake-backend-jenkins_ci_cd_image"
