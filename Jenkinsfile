@@ -113,6 +113,36 @@ pipeline {
                 sh 'gauntlt xss.attack'
 			}
 		}
+		stage('Find heartbleed vulnerability') {
+		    agent { docker { 
+			      image 'gauntlt/gauntlt'
+				  args '--entrypoint='
+				  } }
+			steps {
+                sh 'gauntlt --version'
+                sh 'gauntlt heartbleed.attack'
+			}
+		}
+		stage('Find nmap vulnerability') {
+		    agent { docker { 
+			      image 'gauntlt/gauntlt'
+				  args '--entrypoint='
+				  } }
+			steps {
+                sh 'gauntlt --version'
+                sh 'gauntlt nmap.attack'
+			}
+		}
+		stage('Find os_detection vulnerability') {
+		    agent { docker { 
+			      image 'gauntlt/gauntlt'
+				  args '--entrypoint='
+				  } }
+			steps {
+                sh 'gauntlt --version'
+                sh 'gauntlt os_detection.attack'
+			}
+		}
     }
 
     post {
