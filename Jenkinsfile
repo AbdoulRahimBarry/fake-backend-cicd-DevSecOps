@@ -113,7 +113,7 @@ pipeline {
                 sh 'gauntlt xss.attack'
 			}
 		}
-		stage('Find heartbleed vulnerability') {
+		/*stage('Find heartbleed vulnerability') {
 		    agent { docker { 
 			      image 'gauntlt/gauntlt'
 				  args '--entrypoint='
@@ -122,7 +122,7 @@ pipeline {
                 sh 'gauntlt --version'
                 sh 'gauntlt heartbleed.attack'
 			}
-		}
+		}*/
 		stage('Find nmap vulnerability') {
 		    agent { docker { 
 			      image 'gauntlt/gauntlt'
