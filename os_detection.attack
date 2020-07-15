@@ -4,7 +4,7 @@ Feature: OS detection
     Given "nmap" is installed
     And the following profile:
       | name     | value      |
-      | hostname | scanme.nmap.org |
+      | hostname | 54.235.24.0 |
 
   @slow
   Scenario: Detect OS
